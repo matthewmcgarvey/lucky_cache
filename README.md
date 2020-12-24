@@ -1,6 +1,6 @@
 # lucky_cache
 
-TODO: Write a description here
+Provides caching for Lucky app and particularly for html caching.
 
 ## Installation
 
@@ -13,6 +13,17 @@ TODO: Write a description here
    ```
 
 2. Run `shards install`
+3. Create a `config/cache.cr` and add:
+
+```crystal
+LuckyCache.configure do |settings|
+  settings.cache = Cache::MemoryStore(String, String).new(expires_in: 30.minutes)
+end
+
+module Lucky::HTMLBuilder
+  include LuckyCache::HtmlHelpers
+end
+```
 
 ## Usage
 
@@ -20,7 +31,15 @@ TODO: Write a description here
 require "lucky_cache"
 ```
 
-TODO: Write usage instructions here
+```crystal
+cache("key") do
+  para "hello, world"
+end
+```
+
+## TODO
+
+- Use `Avram::Model` and queries as keys
 
 ## Development
 
