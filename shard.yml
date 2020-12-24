@@ -1,9 +1,12 @@
 name: lucky_cache
 version: 0.1.0
+crystal: 0.35.1
+license: MIT
 
 authors:
   - Matthew McGarvey <matthewmcgarvey14@gmail.com>
 
-crystal: 0.35.1
-
-license: MIT
+dependencies:
+  cache:
+    github: mamantoha/cache
+    version: ~> 0.10.0
