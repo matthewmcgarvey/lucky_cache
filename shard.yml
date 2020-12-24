@@ -10,3 +10,6 @@ dependencies:
   cache:
     github: mamantoha/cache
     version: ~> 0.10.0
+  habitat:
+    github: luckyframework/habitat
+    version: ~> 0.4.4
